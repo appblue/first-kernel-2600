@@ -21,7 +21,8 @@ fstart
         sta WSYNC
 
         lda #0
-        sta VSYNC           
+        sta VSYNC
+        sta COLUBK		; reset color at the VSYNC
 
         ;; 37 scanlines of vertical blank...
 	;; =====================================
@@ -32,7 +33,7 @@ fstart
 	;; 192 scanlines of picture...
 	;; =====================================
         ldx #0
-        REPEAT 192; scanlines
+        REPEAT 192		; # scanlines
 
         inx
         stx COLUBK
